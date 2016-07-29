@@ -15,3 +15,13 @@ following = users[2..50]
 followers = users[3..40]
 following.each {|followed| user.follow(followed)}
 followers.each {|follower| follower.follow(user)}
+
+["Basic 500", "At the restaurant", "Game"].each do |name|
+  Caterory.create!(name: name)
+end
+
+Caterory.all.each do |caterory|
+  50.times do |n|
+    caterory.words.create!(learning_word: "GG", meaning: "BoBo")
+  end
+end

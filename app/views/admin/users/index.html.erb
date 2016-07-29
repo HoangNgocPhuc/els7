@@ -12,7 +12,7 @@
     <li>
       <%= link_to user.name, user %>
       <% if current_user.admin? && !current_user?(user) %>
-        | <%= link_to t("admin.delete"), admin_user_path(user), method: :delete,
+        | <%= link_to t("admin.delete"), [:admin, user], method: :delete,
           data: {confirm: t("admin.admin_confirm")} %>
       <% end %>
     </li>

@@ -1,4 +1,7 @@
 <%= provide(:title, @category.name) %>
-<h1>
-  <%= @category.name %>
-</h1>
+<h1><%= @category.name %></h1>
+
+<% if @category.words.empty? %>
+  <%= link_to t("category.no_word"),  new_admin_word_path,
+    class: "btn btn-primary" %>
+<% end %>

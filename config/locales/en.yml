@@ -9,11 +9,13 @@ en:
     users: "Users"
     user_all: "All users"
     words: "Words"
-
   category:
     label: "New Category"
     list: "All Categories"
+    no_category: "You have no category! Create one now"
+    no_word: "This category has no word! Create now"
     title: "Create new category"
+    start: "start"
   edit:
     edit:change: "Save changes"
     user: Edit user
@@ -23,13 +25,15 @@ en:
     errors: "The form contains "
     text: "error"
   flash:
-    welcome: "Sign up successfully! Welcome to my page"
-    danger: "Please log in."
-    update_fail: "Error update"
     create_failed: "Failed to create"
+    danger: "Please log in."
+    failed_lesson: "You already complete this category"
     success_created: "Created successfully"
+    update_fail: "Error update"
+    welcome: "Sign up successfully! Welcome to my page"
   form:
     create: "Create"
+    update: "Update"
   footer:
     small: "Project 1 - G team"
   header:
@@ -66,9 +70,21 @@ en:
     profile: "Profile"
     settings: "Settings"
   word:
+    action: "Actions"
+    bar_title: "Word"
+    category: "Category"
+    delete: "Delete"
+    destroy: "Delete successfully"
+    destroy_failed: "Delete failed"
+    edit: "Edit word"
+    english: "English"
     label: "New Word"
+    label_update: "Update Word"
     list: "Word List"
     title: "Create new word"
+    update_failed: "Update failed"
+    update_success: "Update successfully"
+    vietnamese: "Vietnamese"
   follow:
     following: "Following"
     followers: "Followers"

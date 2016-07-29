@@ -5,6 +5,10 @@
   <% @categories.each do |category| %>
     <li>
       <%= link_to category.name, category %>
+      <button type="button" class="btn btn-primary">
+        <%= link_to t("category.start"), lessons_path(caterory_id: category.id),
+          method: :post  %>
+      </button>
     </li>
   <% end %>
 </ul>

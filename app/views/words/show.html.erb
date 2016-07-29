@@ -1,4 +1,17 @@
-<%= provide(:title, @word.learning_word) %>
-<h1>
-  <%= @word.learning_word + ": " + @word.meaning %>
-</h1>
+<%= provide(:title, t("word.bar_title")) %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("word.english") %></th>
+      <th><%= t("word.vietnamese") %></th>
+      <th><%= t("word.category") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td><%= @word.learning_word %></td>
+      <td><%= @word.meaning %></td>
+      <td><%= @word.caterory.name %></td>
+    </tr>
+  </tbody>
+</table>

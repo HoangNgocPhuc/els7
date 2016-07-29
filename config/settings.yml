@@ -5,3 +5,5 @@ maximum_word: 50
 maximum_meaning: 100
 maximum_name_category: 50
 users_per_page: 10
+words_per_page: 10
+paragraph: "20 words of caterory: "

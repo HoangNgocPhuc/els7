@@ -1,4 +1,27 @@
-<%= provide(:title, @word.learning_word) %>
-<h1>
-  <%= @word.learning_word + ": " + @word.meaning %>
-</h1>
+<%= provide(:title, t("word.bar_title")) %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("word.english") %></th>
+      <th><%= t("word.vietnamese") %></th>
+      <th><%= t("word.category") %></th>
+      <th><%= t("word.action") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td><%= @word.learning_word %></td>
+      <td><%= @word.meaning %></td>
+      <td><%= @word.caterory.name %></td>
+      <td>
+        <div class="col col-md-6">
+          <%= link_to t("word.edit"), edit_admin_word_path %>
+        </div>
+        <div class="col col-md-6">
+          <%= link_to t("word.delete"), admin_word_path, method: :delete,
+            data: {confirm: t("admin.admin_confirm")} %>
+        </div>  
+      </td>
+    </tr>
+  </tbody>
+</table>

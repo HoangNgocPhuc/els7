@@ -1,10 +1,22 @@
 <%= provide(:title, t("word.list")) %>
 <h1><%= t("word.list") %></h1>
 
-<ul class="inline">
-  <% @words.each do |word| %>
-    <li>
-      <%= link_to (word.learning_word + ": " + word.meaning), word %>
-    </li>
-  <% end %>
-</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("word.english") %></th>
+      <th><%= t("word.vietnamese") %></th>
+      <th><%= t("word.category") %></th>
+    </tr>
+  </thead>
+  <%= will_paginate %>
+  <tbody>
+    <% @words.each do |word| %>
+      <tr class="info">
+        <td><%= word.learning_word %></td>
+        <td><%= word.meaning %></td>
+        <td><%= word.caterory.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

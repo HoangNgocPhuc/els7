@@ -1,10 +1,32 @@
 <%= provide(:title, t("word.list")) %>
 <h1><%= t("word.list") %></h1>
 
-<ul class="inline">
-  <% @words.each do |word| %>
-    <li>
-      <%= link_to (word.learning_word + ": " + word.meaning), admin_word_path(word) %>
-    </li>
-  <% end %>
-</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("word.english") %></th>
+      <th><%= t("word.vietnamese") %></th>
+      <th><%= t("word.category") %></th>
+      <th><%= t("word.action") %></th>
+    </tr>
+  </thead>
+  <%= will_paginate %>
+  <tbody>
+    <% @words.each do |word| %>
+      <tr class="info">
+        <td><%= word.learning_word %></td>
+        <td><%= word.meaning %></td>
+        <td><%= word.caterory.name %></td>
+        <td>
+          <div class="col col-md-6">
+            <%= link_to t("word.edit"), edit_admin_word_path(word.id) %>
+          </div>
+          <div class="col col-md-6">
+            <%= link_to t("word.delete"), [:admin, word], method: :delete,
+              data: {confirm: t("admin.admin_confirm")} %>
+          </div>  
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
