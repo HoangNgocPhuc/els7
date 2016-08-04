@@ -1,12 +1,41 @@
 <%= provide(:title, t("word.list")) %>
-<h1><%= t("word.list") %></h1>
-
-<table class="table">
-  <thread>
-    <%= render "header_table" %>
-  </thread>
-  <%= will_paginate %>
-  <tbody>
-    <%= render @words %>
-  </tbody>
-</table>
+<div class="panel panel-heading">
+  <h1><%= t("word.list") %></h1>
+</div>
+<div class="panel">
+  <div class="form-inline col-md-8  col-md-offset-3">
+    <%= form_tag words_path, method: :get do %>
+      <%= select_tag :by_caterory,
+        options_from_collection_for_select(@caterories, :id, :name, params[:by_caterory]),
+          include_blank: t("word.all"), class: "form-control col-md-2" %>
+      <div class="col-md-2"><%= radio_button_tag :word_type, "learned",
+        params[:word_type] == "learned" %><%= t("word.learned") %></div>
+      <div class="col-md-2"><%= radio_button_tag :word_type, "not_learned",
+        params[:word_type] == "not_learned" %><%= t("word.not_learned") %></div>
+      <div class="col-md-2"><%= radio_button_tag :word_type, "all_words",
+        params[:word_type] == "all_words" %><%= t("word.all_words") %></div>
+      <div class="col-md-2"><%= submit_tag t("word.search"), class: "btn btn-success" %></div>
+    <% end %>
+  </div>
+</div>
+<div class="panel panel-body col-md-4 col-md-offset-4">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t("word.words") %></th>
+        <th><%= t("word.meaning") %></th>
+        <th><%= t("word.caterories") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @words.each do |word| %>
+        <tr>
+          <td><%= word.learning_word %></td>
+          <td><%= word.meaning %></td>
+          <td><%= word.caterory.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @words %>
+</div>

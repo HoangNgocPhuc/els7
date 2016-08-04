@@ -54,6 +54,7 @@ en:
     language: "Language"
     vietnamese: "Vietnamese"
   home:
+    lesson: "Lesson"
     pragraph: "We hope that my page will be useful with you"
     signup: "Sign up now!"
     welcome: "Welcome to our app"
@@ -107,6 +108,9 @@ en:
     update_failed: "Update failed"
     update_success: "Update successfully"
     vietnamese: "Vietnamese"
+    words: "Words"
+    mean: "Meaning"
+    search: "Search"
   follow:
     following: "Following"
     followers: "Followers"

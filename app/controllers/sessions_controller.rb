@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if user.admin?
         redirect_to admin_root_url
       else
-        redirect_to user
+        redirect_to root_url
       end
     else
       flash.now[:danger] = t("user.invalid")

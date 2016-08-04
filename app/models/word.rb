@@ -3,12 +3,20 @@ class Word < ActiveRecord::Base
 
   has_many :results, dependent: :destroy
   has_many :answers, dependent: :destroy
-  
+
   belongs_to :caterory
-  
+
   validates :learning_word, presence: true, length: {maximum: Settings.maximum_word}
   validates :meaning, presence: true, length: {maximum: Settings.maximum_meaning}
 
+  scope :by_caterory, ->(caterory_id) do
+    where caterory_id: caterory_id if caterory_id.present?
+  end
+  scope :all_words, ->(user_id){}
+  scope :learned, ->(user_id){
+    joins(:results).where results: {user_id: user_id}}
+  scope :not_learned, ->(user_id){where.not id: Word.learned(user_id)}
+  
   accepts_nested_attributes_for :answers, allow_destroy: true,
     reject_if: proc {|attributes| attributes[:mean].blank?}
 

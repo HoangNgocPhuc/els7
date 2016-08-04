@@ -12,3 +12,4 @@ check_lesson: 1
 users_per_page: 10
 words_per_page: 10
 paragraph: "20 words of caterory: "
+all_words: "all_words"
