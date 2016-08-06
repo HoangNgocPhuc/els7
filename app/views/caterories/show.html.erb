@@ -1,11 +1,18 @@
 <%= provide(:title, @category.name) %>
 <h1><%= @category.name %></h1>
-<% if @words.present? %>
+
+<% if (can? :create, @category) && @category.words.empty? %>
+  <%= link_to t("category.no_word"),  new_word_path, class: "btn btn-primary" %>
+<% else %>
   <table class="table">
-    <thead>
-      <%= render "words/header_table" %>
-    </thead>
-    <%= will_paginate(@words) %>
+    <thread>
+      <% if can? :create, @category %>
+        <%= render "words/header_table_admin" %>
+      <% else %>
+        <%= render "words/header_table" %>
+      <% end %>    
+    </thread>
+    <%= will_paginate @words %>
     <tbody>
       <%= render @words %>
     </tbody>

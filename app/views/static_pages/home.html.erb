@@ -1,5 +1,5 @@
 <% provide(:title, t("title.home")) %>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <aside class="col-md-4">
     <section>
       <h1><%= current_user.name %></h1>
@@ -12,7 +12,7 @@
     <%= link_to t("word.word_list"), words_path,
       class: "btn btn-lg btn-primary" %>
     <%= link_to t("home.lesson"), caterories_path,
-      class: "btn btn-lg btn-success" %>
+      class: "btn btn-lg btn-success" %>  
     <div class="clearfix"></div>
     <br/>
     <div>
@@ -34,7 +34,7 @@
       </div>
       <div class="col-xs-6 col-md-4">
         <h3><%= t("title.login") %></h3>
-        <%= render "shared/form_login" %>
+        <%= link_to "signin with facebook", user_facebook_omniauth_authorize_path %>
       </div>
     </div>
   </div>

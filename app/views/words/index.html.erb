@@ -21,20 +21,14 @@
 <div class="panel panel-body col-md-4 col-md-offset-4">
   <table class="table table-hover">
     <thead>
-      <tr>
-        <th><%= t("word.words") %></th>
-        <th><%= t("word.meaning") %></th>
-        <th><%= t("word.caterories") %></th>
-      </tr>
+      <% if current_user.role == "admin" %>
+        <%= render 'header_table_admin' %>
+      <% else %>
+        <%= render 'header_table' %>
+      <% end %>  
     </thead>
     <tbody>
-      <% @words.each do |word| %>
-        <tr>
-          <td><%= word.learning_word %></td>
-          <td><%= word.meaning %></td>
-          <td><%= word.caterory.name %></td>
-        </tr>
-      <% end %>
+      <%= render @words %>
     </tbody>
   </table>
   <%= will_paginate @words %>

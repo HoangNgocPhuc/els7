@@ -2,4 +2,15 @@
   <td><%= word.learning_word %></td>
   <td><%= word.meaning %></td>
   <td><%= word.caterory.name %></td>
+  <% if can? :edit, word %>
+    <td>
+      <div class="col col-md-6">
+        <%= link_to t("word.edit"), edit_word_path(word.id) %>
+      </div>
+      <div class="col col-md-6">
+        <%= link_to t("word.delete"), word, method: :delete,
+          data: {confirm: t("admin.admin_confirm")} %>
+      </div>  
+    </td>
+  <% end %>  
 </tr>

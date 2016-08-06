@@ -5,9 +5,7 @@
       <%= pluralize(object.errors.count, t("error.text")) %>.
     </div>
     <ul>
-      <% object.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+      <%= :attribute %>
     </ul>
   </div>
 <% end %>

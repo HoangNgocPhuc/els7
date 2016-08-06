@@ -22,12 +22,8 @@
           </ul>
         </li>
       </ul>
-      <% if logged_in? %>
-        <% if current_user.admin? %>
-          <%= render "layouts/header_admin" %>
-        <% else %>
-          <%= render "layouts/header_login" %>
-        <% end %>
+      <% if user_signed_in? %>
+        <%= render "layouts/header_login" %>
       <% else %>
         <%= render "layouts/header_no_login" %>
       <% end %>

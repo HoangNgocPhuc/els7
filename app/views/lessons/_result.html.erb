@@ -25,13 +25,7 @@
   </tbody>
 </table>
 <div class="row">
-  <% if current_user.admin? %>
-    <button class="btn btn-md-primary">
-      <%= link_to t("lesson.keep_learning"), admin_caterories_path(@lesson.caterory.id) %>
-    </button>
-  <% else %>
-    <button class="btn btn-md-primary">
-      <%= link_to t("lesson.keep_learning"), caterories_path(@lesson.caterory.id) %>
-    </button>
-  <% end %>
+  <button class="btn btn-md-primary">
+    <%= link_to t("lesson.keep_learning"), caterories_path(@lesson.caterory.id) %>
+  </button>
 </div>

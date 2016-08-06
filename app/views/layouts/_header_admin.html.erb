@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right">
+<!-- <ul class="nav navbar-nav navbar-right">
   <li><%= link_to t("admin.users"), admin_users_path %></li>
   <li><%= link_to t("admin.categories"), admin_caterories_path %></li>
   <li><%= link_to t("admin.words"), admin_words_path %></li>
@@ -8,9 +8,10 @@
     </a>
     <ul class="dropdown-menu">
       <li><%= link_to t("admin.profile"), user_path(current_user) %></li>
-      <li><%= link_to t("admin.settings"), edit_user_path(current_user) %></li>
+      <li><%= link_to t("admin.settings"), edit_path(current_user) %></li>
       <li class="divider"></li>
-      <li><%= link_to t("admin.logout"), logout_path, method: :delete  %></li>
+      <li><%= link_to t("admin.logout"), signout_path, method: :delete  %></li>
     </ul>
   </li>
 </ul>
+ -->
