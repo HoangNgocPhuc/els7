@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :email
-      t.integer :role, default: 0
+      t.string :role, default: "normal acount"
       t.date :birthday
 
       t.timestamps null: false

@@ -31,8 +31,8 @@ class Word < ActiveRecord::Base
     Word.all.sample.meaning
   end
 
-  def id_to_symbol
-    self.id.to_s.to_s
+  def id_to_string
+    self.id.to_s
   end
 
   scope :not_learned, ->(current_user_id){

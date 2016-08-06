@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  include SessionsHelper
   include LessonsHelper
   private
 
@@ -17,5 +16,9 @@ class ApplicationController < ActionController::Base
       flash[:danger] = t("flash.danger")
       redirect_to login_url
     end
+  end
+
+  def after_sign_up_path_for(resource)
+    home_path
   end
 end

@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
-  before_save :email_downcase
-  attr_accessor :remember_token
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  #before_save :email_downcase
+  #attr_accessor :remember_token
+  #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   enum role: [:guest, :admin]
 
   has_many :lessons, dependent: :destroy
@@ -14,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :learned_words, through: :results, source: :word
-
+=begin
   validates :name, presence: true, length: {maximum: Settings.maximum_name}
   validates :email, presence: true, length: {maximum: Settings.maximum_email},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
@@ -63,4 +67,5 @@ class User < ActiveRecord::Base
   def email_downcase
     self.email = email.downcase
   end
+=end
 end

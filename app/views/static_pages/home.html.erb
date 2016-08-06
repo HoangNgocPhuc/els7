@@ -1,5 +1,5 @@
 <% provide(:title, t("title.home")) %>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <aside class="col-md-4">
     <section>
       <h1><%= current_user.name %></h1>
