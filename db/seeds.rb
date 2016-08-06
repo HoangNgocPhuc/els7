@@ -1,5 +1,5 @@
 User.create!(name: "Gin", email: "darkdragon236@gmail.com",
-  password: "1234567", password_confirmation: "1234567", role: 1)
+  password: "1234567", password_confirmation: "1234567", role: "admin")
 
 User.create!(name: "A", email: "tuanh@gmail.com",
   password: "1234567", password_confirmation: "1234567")

@@ -1,14 +1,20 @@
-<% provide(:title, t("index.all")) %>
-<h1><%= t("index.all") %></h1>
+<% provide(:title, t("admin.user_all")) %>
+<div class="table-title">
+  <h1><%= t("admin.user_all") %></h1>
+</div>
+
+<div class="page-center">
+  <%= will_paginate %>
+</div>
 
 <ul class="users">
   <% @users.each do |user| %>
     <li>
       <%= link_to user.name, user %>
+      <% if current_user != user && (can? :destroy, user) %>
+        | <%= link_to t("admin.delete"), user_registration_path, method: :delete,
+          data: {confirm: t("admin.admin_confirm")} %>
+      <% end %>
     </li>
   <% end %>
 </ul>
-
-<div class="page-center">
-  <%= will_paginate %>
-</div>
